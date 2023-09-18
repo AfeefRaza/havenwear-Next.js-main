@@ -68,7 +68,7 @@ export default function App({ Component, pageProps }) {
     
   }
   // this is a function to add product to cart
-  const addtoCart = (itemcode,qty,name,price,size,variant) =>{
+  const addtoCart = (itemcode,qty,name,price,size,variant,img) =>{
     let newCart = cart;
     //checking if the product already exist in cart
     if (itemcode in cart ) {
@@ -76,7 +76,7 @@ export default function App({ Component, pageProps }) {
       newCart[itemcode].qty = cart[itemcode].qty + qty
     } else {
       // if it doesnt exist we will push it in the cart and set its qty to 1
-      newCart[itemcode] = {qty:1,price , name, size , variant}
+      newCart[itemcode] = {qty:1,price , name, size , variant,img}
     }
     // we will update the state of the cart to new cart
     setCart(newCart)
@@ -94,7 +94,7 @@ export default function App({ Component, pageProps }) {
       theme: "light",
       })
 
-
+ console.log(newCart)
   }
   // this is a function to remove product to cart
   const removefromCart = (itemcode,qty,name,price,size,variant) =>{
